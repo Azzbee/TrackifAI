@@ -1,0 +1,147 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* The Strategy Companion - Editorial Design System */
+
+@layer base {
+  :root {
+    --background: 36 33% 96%;
+    --foreground: 0 0% 12%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 12%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 12%;
+
+    --primary: 159 30% 59%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 36 33% 92%;
+    --secondary-foreground: 0 0% 12%;
+
+    --muted: 36 20% 90%;
+    --muted-foreground: 0 0% 42%;
+
+    --accent: 159 30% 59%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 0 0% 89%;
+    --input: 0 0% 89%;
+    --ring: 159 30% 59%;
+
+    --radius: 1.5rem;
+
+    /* Custom tokens for Strategy Companion */
+    --ivory: 36 33% 96%;
+    --charcoal: 0 0% 12%;
+    --warm-gray: 0 0% 42%;
+    --sage: 159 30% 59%;
+    --sage-light: 159 30% 95%;
+    --sage-dark: 159 30% 45%;
+    
+    --shadow-soft: 0 2px 8px hsl(0 0% 0% / 0.04);
+    --shadow-elevated: 0 8px 30px hsl(0 0% 0% / 0.08);
+  }
+
+  .dark {
+    --background: 36 33% 96%;
+    --foreground: 0 0% 12%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+}
+
+@layer utilities {
+  .font-serif {
+    font-family: 'Playfair Display', Georgia, serif;
+  }
+
+  .font-sans {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+
+  .text-gradient-sage {
+    background: linear-gradient(135deg, hsl(159 30% 50%), hsl(159 40% 40%));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .card-editorial {
+    background: hsl(0 0% 100%);
+    border: 1px solid hsl(0 0% 89%);
+    border-radius: 1.5rem;
+    transition: all 0.3s ease;
+  }
+
+  .card-editorial:hover {
+    box-shadow: var(--shadow-elevated);
+    border-color: hsl(159 30% 59% / 0.3);
+  }
+
+  .nav-editorial {
+    background: hsl(var(--background) / 0.95);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid hsl(var(--border) / 0.5);
+  }
+
+  .btn-sage {
+    background: hsl(159 30% 59%);
+    color: white;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px hsl(159 30% 59% / 0.25);
+  }
+
+  .btn-sage:hover {
+    background: hsl(159 30% 52%);
+    box-shadow: 0 4px 16px hsl(159 30% 59% / 0.35);
+    transform: translateY(-1px);
+  }
+
+  .input-focus-sage:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px hsl(159 30% 59% / 0.15);
+    border-color: hsl(159 30% 59%);
+  }
+
+  .section-divider {
+    border-top: 1px solid hsl(0 0% 89%);
+  }
+
+  .calm-fade {
+    animation: calm-fade 0.8s ease-out forwards;
+  }
+
+  @keyframes calm-fade {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
