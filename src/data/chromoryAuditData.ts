@@ -116,7 +116,7 @@ export interface AuditData {
     weakPoints: WeakPoint[];
     improvements: Improvement[];
     kpis: KPI[];
-    metrics: TikTokMetrics;
+    metrics: TikTokMetrics | null;
   };
   
   competitors: CompetitorData[];
@@ -132,328 +132,301 @@ export interface AuditData {
 export const chromoryAuditData: AuditData = {
   brandName: "Chromory",
   brandUrl: "chromory.com",
-  overallScore: 64,
-  predictedScore: 82,
+  overallScore: 42,
+  predictedScore: 78,
   auditDate: new Date().toISOString(),
   overallKpis: [
-    { label: "Brand Awareness", value: "62%", change: 8, trend: 'up' },
-    { label: "Market Position", value: "#12", change: 3, trend: 'up' },
-    { label: "Conversion Rate", value: "2.4%", change: -5, trend: 'down' },
-    { label: "Customer LTV", value: "$340", change: 12, trend: 'up' },
-    { label: "Social Reach", value: "45K", change: 18, trend: 'up' },
-    { label: "Content Velocity", value: "3.2/wk", change: -8, trend: 'down' },
+    { label: "Overall Score", value: "42%", change: 0, trend: 'stable' },
+    { label: "Growth Potential", value: "+36 pts", change: 36, trend: 'up' },
   ],
   
   websiteAudit: {
     scores: {
       positioning: {
-        score: 72,
-        label: 'Strong',
-        reasoning: "Clear positioning as a creative studio, but could differentiate more from competitors."
+        score: 52,
+        label: 'Needs Work',
+        reasoning: "Custom coloring books are a unique product, but the site doesn't clearly communicate what makes Chromory different from other coloring book sellers."
       },
       messaging: {
-        score: 58,
-        label: 'Needs Work',
-        reasoning: "Core message gets lost in visual elements. Headlines could be more benefit-focused."
-      },
-      trustSignals: {
         score: 45,
         label: 'Needs Work',
-        reasoning: "Missing client logos, testimonials, and case study metrics on homepage."
+        reasoning: "The messaging relies heavily on Shopify defaults. No compelling story about the personalization magic or emotional value of custom coloring books."
+      },
+      trustSignals: {
+        score: 68,
+        label: 'Needs Work',
+        reasoning: "Judge.me reviews are a strong foundation, but missing product-in-use photos, creator story, and before/after customization examples."
       },
       callToAction: {
-        score: 62,
+        score: 55,
         label: 'Needs Work',
-        reasoning: "CTAs exist but lack urgency and specificity. 'Get in touch' is generic."
+        reasoning: "Standard Shopify 'Add to Cart' buttons. Missing urgency triggers, bundle offers, or personalization CTAs."
       },
       contentClarity: {
-        score: 78,
-        label: 'Strong',
-        reasoning: "Visual hierarchy is good, content is scannable, but service pages need work."
+        score: 48,
+        label: 'Needs Work',
+        reasoning: "Product pages lack detail about the customization process. Visitors don't understand how to personalize or what to expect."
       }
     },
-    summary: "Chromory's website showcases strong visual design but struggles with conversion fundamentals. The creative work speaks for itself, yet the messaging doesn't capitalize on the portfolio's impact. Visitors can see the quality but aren't given compelling reasons to act now.",
+    summary: "Chromory's Shopify store sells a genuinely unique product—custom coloring books—but the website doesn't do the product justice. The site feels like a template with products plugged in rather than a destination that celebrates creativity and personalization. Reviews are carrying the trust burden while the brand voice stays silent.",
     weakPoints: [
       {
-        title: "Missing Social Proof",
-        description: "No visible client testimonials, logos, or success metrics on the homepage.",
+        title: "Generic Shopify Template",
+        description: "The site uses default theme styling with minimal customization, making it feel impersonal for a personalization brand.",
         impact: 'High'
       },
       {
-        title: "Generic CTAs",
-        description: "Calls-to-action don't create urgency or specify the next step clearly.",
+        title: "No Brand Story",
+        description: "Missing founder story, mission, or 'why' behind custom coloring books. People buy from brands they connect with.",
         impact: 'High'
       },
       {
-        title: "Unclear Pricing/Process",
-        description: "Visitors don't know what to expect in terms of process, timeline, or investment.",
-        impact: 'Medium'
+        title: "Unclear Customization Process",
+        description: "Visitors don't understand how the personalization works, what options exist, or how long it takes.",
+        impact: 'High'
       },
       {
-        title: "Mobile Navigation Issues",
-        description: "Menu items are cramped and touch targets are too small on mobile.",
+        title: "No Visual Content Strategy",
+        description: "Missing product-in-use photos, customer creations, or coloring progress images that show the joy of the product.",
         impact: 'Medium'
       }
     ],
     improvements: [
       {
-        title: "Add Client Logo Bar",
-        description: "Display 5-8 recognizable client logos above the fold to establish immediate credibility.",
+        title: "Add How It Works Section",
+        description: "Create a simple 3-step visual guide showing the customization process: Choose → Personalize → Receive.",
         effort: 'Easy',
         impact: 'High'
       },
       {
-        title: "Rewrite Hero CTA",
-        description: "Change 'Get in touch' to 'Book Your Free Strategy Call' with a supporting subtitle.",
+        title: "Feature Customer Creations",
+        description: "Add a gallery of completed coloring pages from real customers. This is powerful social proof and shows the product value.",
         effort: 'Easy',
         impact: 'High'
       },
       {
-        title: "Add Testimonial Carousel",
-        description: "Feature 3-5 client testimonials with photos, names, and specific results.",
+        title: "Tell Your Brand Story",
+        description: "Add an About page with the founder story, why custom coloring books matter, and the mission behind Chromory.",
         effort: 'Medium',
         impact: 'High'
       },
       {
-        title: "Create Pricing Page",
-        description: "Add transparent pricing tiers or 'starting from' pricing to qualify leads better.",
+        title: "Create Bundle Offers",
+        description: "Offer family bundles, gift sets, or themed collections to increase average order value.",
         effort: 'Medium',
         impact: 'Medium'
       }
     ],
     kpis: [
-      { label: "Page Load Speed", value: "2.4s", change: -12, trend: 'down' },
-      { label: "Bounce Rate", value: "58%", change: 5, trend: 'up' },
-      { label: "Mobile Score", value: "72/100", change: 0, trend: 'stable' },
-      { label: "SEO Score", value: "68/100", change: 8, trend: 'up' }
+      { label: "Positioning", value: "52%", change: 0, trend: 'stable' },
+      { label: "Messaging", value: "45%", change: 0, trend: 'stable' },
+      { label: "Trust Signals", value: "68%", change: 0, trend: 'stable' },
+      { label: "CTA Strength", value: "55%", change: 0, trend: 'stable' }
     ],
-    keywords: [
-      { keyword: "creative studio branding", volume: 2400, difficulty: 45, currentRank: 18, trend: 'up', opportunity: 'High' },
-      { keyword: "brand identity design", volume: 8100, difficulty: 72, currentRank: null, trend: 'stable', opportunity: 'Medium' },
-      { keyword: "startup branding agency", volume: 1900, difficulty: 38, currentRank: 24, trend: 'up', opportunity: 'High' },
-      { keyword: "visual identity designer", volume: 1200, difficulty: 42, currentRank: 12, trend: 'up', opportunity: 'High' },
-      { keyword: "rebranding services", volume: 3600, difficulty: 65, currentRank: null, trend: 'down', opportunity: 'Low' }
-    ]
+    keywords: []
   },
   
   tiktokAudit: {
     scores: {
       positioning: {
-        score: 55,
-        label: 'Needs Work',
-        reasoning: "TikTok presence doesn't clearly communicate unique value proposition."
+        score: 0,
+        label: 'Critical',
+        reasoning: "No TikTok presence found. This is a massive missed opportunity for a creative product brand."
       },
       messaging: {
-        score: 48,
-        label: 'Needs Work',
-        reasoning: "Content is visually appealing but lacks strong hooks in first 3 seconds."
+        score: 0,
+        label: 'Critical',
+        reasoning: "No TikTok content to analyze. Your target audience is actively searching for coloring content."
       },
       trustSignals: {
-        score: 35,
+        score: 0,
         label: 'Critical',
-        reasoning: "No social proof, testimonials, or behind-the-scenes credibility content."
+        reasoning: "Zero social proof on the platform where your customers spend the most time."
       },
       callToAction: {
-        score: 42,
-        label: 'Needs Work',
-        reasoning: "Most videos lack clear CTAs. Bio link could be optimized."
+        score: 0,
+        label: 'Critical',
+        reasoning: "No opportunity to drive traffic without a presence on the platform."
       },
       contentClarity: {
-        score: 65,
-        label: 'Needs Work',
-        reasoning: "Aesthetic is cohesive but content themes are scattered without clear pillars."
+        score: 0,
+        label: 'Critical',
+        reasoning: "No content strategy visible. Coloring book content performs exceptionally well on TikTok."
       }
     },
-    summary: "Chromory's TikTok shows creative potential but isn't optimized for growth. The content is beautiful but doesn't follow platform best practices—hooks are weak, CTAs are missing, and there's no consistent content strategy. The algorithm needs clearer signals.",
+    summary: "Chromory has no TikTok presence—a critical gap for a personalized coloring book brand. TikTok's coloring and art community is massive, with #coloringbook having billions of views. This represents your biggest untapped growth channel. Competitors are building engaged audiences while you're invisible to an entire generation of potential customers.",
     weakPoints: [
       {
-        title: "Weak Opening Hooks",
-        description: "First 3 seconds don't stop the scroll—missing pattern interrupts.",
+        title: "No TikTok Presence",
+        description: "Your brand doesn't exist on the platform where coloring content goes viral daily.",
         impact: 'High'
       },
       {
-        title: "No Trending Audio Usage",
-        description: "Original sounds are great, but missing opportunities with trending audio.",
+        title: "Missing Viral Opportunity",
+        description: "Coloring timelapses, ASMR coloring, and custom book reveals consistently get millions of views.",
         impact: 'High'
       },
       {
-        title: "Inconsistent Posting",
-        description: "Posting schedule is erratic—algorithm penalizes inconsistency.",
-        impact: 'Medium'
+        title: "Invisible to Gen Z",
+        description: "An entire generation of potential customers will never discover your brand.",
+        impact: 'High'
       },
       {
-        title: "Missing Captions/Text",
-        description: "Many videos lack on-screen text, hurting accessibility and retention.",
+        title: "No UGC Engine",
+        description: "You're missing out on free content from customers sharing their coloring experiences.",
         impact: 'Medium'
       }
     ],
     improvements: [
       {
-        title: "Hook Framework",
-        description: "Start every video with a question, bold statement, or visual pattern interrupt.",
+        title: "Create TikTok Account",
+        description: "Set up a branded TikTok profile with link to shop and clear bio describing your custom coloring books.",
         effort: 'Easy',
         impact: 'High'
       },
       {
-        title: "Content Pillars Strategy",
-        description: "Define 3-4 content pillars and rotate consistently for algorithm favor.",
-        effort: 'Medium',
-        impact: 'High'
-      },
-      {
-        title: "Posting Schedule",
-        description: "Commit to 5x/week minimum at consistent times based on analytics.",
-        effort: 'Medium',
-        impact: 'High'
-      },
-      {
-        title: "Add Text Overlays",
-        description: "Use CapCut to add engaging text animations to improve retention.",
+        title: "Start with Coloring Timelapses",
+        description: "Film satisfying timelapse videos of your coloring books being completed. This content format is proven to go viral.",
         effort: 'Easy',
-        impact: 'Medium'
+        impact: 'High'
+      },
+      {
+        title: "Show Personalization Process",
+        description: "Create behind-the-scenes content showing how custom coloring books are made. People love seeing the magic.",
+        effort: 'Medium',
+        impact: 'High'
+      },
+      {
+        title: "Encourage Customer Content",
+        description: "Create a hashtag and incentivize customers to share their coloring progress for UGC goldmine.",
+        effort: 'Medium',
+        impact: 'High'
       }
     ],
-    kpis: [
-      { label: "Avg. Views", value: "2.4K", change: -18, trend: 'down' },
-      { label: "Engagement Rate", value: "4.2%", change: 12, trend: 'up' },
-      { label: "Followers", value: "8.7K", change: 3, trend: 'up' },
-      { label: "Watch Time", value: "45%", change: -5, trend: 'down' }
-    ],
-    metrics: {
-      totalViews: 156000, viewsChange: -12,
-      totalLikes: 8400, likesChange: 8,
-      totalComments: 420, commentsChange: -5,
-      totalShares: 890, sharesChange: 15,
-      totalSaves: 1200, savesChange: 22,
-      avgWatchTime: 45, watchTimeChange: -8,
-      topVideos: [
-        { title: "How we designed a $1M brand in 48 hours", views: 45000, likes: 2100, saves: 340 },
-        { title: "POV: Client says 'make it pop'", views: 32000, likes: 1800, saves: 280 },
-        { title: "Brand redesign transformation reveal", views: 28000, likes: 1400, saves: 220 }
-      ]
-    }
+    kpis: [],
+    metrics: null
   },
   
   competitors: [
     {
-      name: "DesignStudio.co",
-      score: 78,
-      strengths: ["Strong case studies", "Clear pricing", "Active blog"],
-      weaknesses: ["Slow load times", "Generic portfolio"]
+      name: "ColorIt",
+      score: 76,
+      strengths: ["Strong TikTok presence (50K+)", "Active coloring community", "UGC content strategy"],
+      weaknesses: ["Higher prices", "Less personalization options"]
     },
     {
-      name: "CreativeHouse",
-      score: 71,
-      strengths: ["Great testimonials", "Video content", "Process page"],
-      weaknesses: ["Cluttered homepage", "Weak CTAs"]
+      name: "I Create Art",
+      score: 72,
+      strengths: ["Beautiful product photos", "Clear customization process", "Email marketing"],
+      weaknesses: ["Slower shipping", "Limited designs"]
     },
     {
-      name: "ArtisanDigital",
-      score: 69,
-      strengths: ["Unique visual style", "Strong social proof"],
-      weaknesses: ["No pricing info", "Poor mobile experience"]
+      name: "Colorful Expressions",
+      score: 68,
+      strengths: ["Wide variety of themes", "Wholesale options", "SEO optimized"],
+      weaknesses: ["Generic branding", "Poor mobile experience"]
     }
   ],
-  
+
   extendedCompetitors: [
     {
-      name: "DesignStudio.co",
-      url: "designstudio.co",
-      score: 78,
+      name: "ColorIt",
+      url: "colorit.com",
+      score: 76,
       whatTheyDoBetter: [
-        "Case studies with specific ROI metrics (3x conversions, 40% more leads)",
-        "Transparent pricing tiers on homepage builds trust instantly",
-        "Active blog with 2-3 posts/week drives organic traffic",
-        "Client testimonial videos with faces and specific results"
+        "50K+ TikTok followers with consistent coloring content that drives massive awareness",
+        "Active Facebook community group with 15K members sharing their creations",
+        "User-generated content strategy turns customers into brand ambassadors",
+        "Clear value proposition: 'Premium coloring books for adults who take coloring seriously'"
       ],
       howToMatch: [
-        "Add ROI metrics to your top 3 case studies this week",
-        "Create a simple 3-tier pricing page (Starter, Growth, Enterprise)",
-        "Commit to 1 blog post per week on branding trends",
-        "Record 2-minute video testimonials with 3 best clients"
+        "Start TikTok immediately with coloring timelapses and behind-the-scenes content",
+        "Create a Facebook group for Chromory customers to share their creations",
+        "Launch a hashtag campaign encouraging customers to share their work",
+        "Develop a clear brand positioning statement for your unique customization angle"
       ],
       metrics: [
-        { label: "Domain Authority", theirValue: "58", yourValue: "42", comparison: 'better' as const },
-        { label: "Avg. Time on Site", theirValue: "3:24", yourValue: "2:18", comparison: 'better' as const },
-        { label: "Monthly Traffic", theirValue: "45K", yourValue: "28K", comparison: 'better' as const },
-        { label: "Social Following", theirValue: "12K", yourValue: "8.7K", comparison: 'better' as const }
+        { label: "TikTok Followers", theirValue: "52K", yourValue: "0", comparison: 'better' as const },
+        { label: "Monthly Traffic", theirValue: "45K", yourValue: "8K", comparison: 'better' as const },
+        { label: "Instagram Following", theirValue: "28K", yourValue: "2K", comparison: 'better' as const },
+        { label: "Review Count", theirValue: "1,200+", yourValue: "85", comparison: 'better' as const }
       ]
     },
     {
-      name: "CreativeHouse",
-      url: "creativehouse.io",
-      score: 71,
+      name: "I Create Art",
+      url: "icreateart.com",
+      score: 72,
       whatTheyDoBetter: [
-        "Video-first portfolio showcases work in action",
-        "Detailed process page reduces client anxiety",
-        "Email lead magnet captures 15% of visitors",
-        "Strong LinkedIn presence with founder thought leadership"
+        "Professional product photography shows books in lifestyle settings",
+        "Step-by-step customization wizard makes personalization feel easy",
+        "Email sequences nurture leads with coloring tips and inspiration",
+        "Clear shipping timelines and expectations reduce purchase anxiety"
       ],
       howToMatch: [
-        "Add 30-second video walkthroughs to each portfolio piece",
-        "Create a 'How We Work' page with timeline and expectations",
-        "Build a free brand audit tool as lead magnet",
-        "Post 3x/week on LinkedIn with design insights"
+        "Invest in lifestyle product photography showing people enjoying coloring",
+        "Build a visual customization tool that guides customers through options",
+        "Create an email welcome sequence with coloring tips and product highlights",
+        "Add clear shipping estimates and production timelines on product pages"
       ],
       metrics: [
-        { label: "Domain Authority", theirValue: "45", yourValue: "42", comparison: 'better' as const },
-        { label: "Avg. Time on Site", theirValue: "2:45", yourValue: "2:18", comparison: 'better' as const },
-        { label: "Monthly Traffic", theirValue: "32K", yourValue: "28K", comparison: 'better' as const },
-        { label: "Social Following", theirValue: "6.2K", yourValue: "8.7K", comparison: 'worse' as const }
+        { label: "Avg. Time on Site", theirValue: "4:12", yourValue: "1:45", comparison: 'better' as const },
+        { label: "Email List Size", theirValue: "25K", yourValue: "Unknown", comparison: 'better' as const },
+        { label: "Conversion Rate", theirValue: "3.2%", yourValue: "1.8%", comparison: 'better' as const },
+        { label: "Avg. Order Value", theirValue: "$48", yourValue: "$32", comparison: 'better' as const }
       ]
     },
     {
-      name: "ArtisanDigital",
-      url: "artisandigital.com",
-      score: 69,
+      name: "Colorful Expressions",
+      url: "colorfulexpressions.com",
+      score: 68,
       whatTheyDoBetter: [
-        "Distinctive visual identity is immediately recognizable",
-        "Strong social proof with Fortune 500 client logos",
-        "Interactive portfolio with hover effects and animations",
-        "Awards section builds credibility (Awwwards, CSS Design)"
+        "Strong SEO with rankings for 'custom coloring books' and 'personalized coloring'",
+        "Wholesale and bulk order options for businesses and events",
+        "Wide variety of themes from nature to pop culture",
+        "Gift-ready packaging options increase perceived value"
       ],
       howToMatch: [
-        "Develop a signature visual style for your own brand",
-        "Secure 2-3 recognizable logos for your homepage",
-        "Add subtle animations to portfolio thumbnails",
-        "Submit best work to design awards for credibility"
+        "Optimize product pages for SEO with keyword-rich descriptions",
+        "Consider adding bulk/wholesale options for parties and corporate gifts",
+        "Expand your theme library based on trending search terms",
+        "Offer premium gift packaging as an upsell option"
       ],
       metrics: [
-        { label: "Domain Authority", theirValue: "52", yourValue: "42", comparison: 'better' as const },
-        { label: "Avg. Time on Site", theirValue: "1:58", yourValue: "2:18", comparison: 'worse' as const },
-        { label: "Monthly Traffic", theirValue: "22K", yourValue: "28K", comparison: 'worse' as const },
-        { label: "Social Following", theirValue: "15K", yourValue: "8.7K", comparison: 'better' as const }
+        { label: "Organic Keywords", theirValue: "2,400", yourValue: "120", comparison: 'better' as const },
+        { label: "Domain Authority", theirValue: "35", yourValue: "18", comparison: 'better' as const },
+        { label: "Product Variety", theirValue: "200+", yourValue: "45", comparison: 'better' as const },
+        { label: "Google Reviews", theirValue: "340", yourValue: "28", comparison: 'better' as const }
       ]
     }
   ],
   
-  brandRoast: "Chromory, you've got the design chops of a Michelin-star chef but you're running a food truck with no menu. Your portfolio screams 'hire me' while your website whispers 'maybe fill out a form sometime, no pressure.' You're basically the person who shows up to a job interview in a $5,000 suit but forgets their resume. Fix those CTAs before someone with half your talent but twice your sales skills eats your lunch.",
+  brandRoast: "Chromory, you're selling personalized coloring books but your website has all the personality of a blank page waiting to be colored in. Your Shopify store is technically functional but emotionally flatlined. You've got Judge.me reviews doing the heavy lifting while your brand voice takes a permanent nap. You're in the business of creativity and self-expression, yet your site screams 'we used the default theme and called it a day.' Meanwhile, your competitors are out here building communities around coloring while you're hoping customers somehow stumble into your checkout. No TikTok presence in 2025? That's like selling art supplies and refusing to show anyone making art. Get some personality, show the magic of your product, and stop letting your reviews be the only interesting thing on your site.",
   
   growthStrategy: {
-    summary: "The 30-day turnaround focuses on three pillars: establishing credibility through social proof, creating urgency with compelling CTAs, and building a content engine that positions Chromory as the go-to creative studio. Each week builds on the previous, creating compound momentum.",
+    summary: "The 30-day turnaround focuses on three pillars: launching a TikTok presence with coloring content, improving website conversion with clearer messaging, and building a community around custom coloring books. Chromory has a unique product that's perfect for viral content—time to show it off.",
     contentPlan: {
-      positioning: "The creative studio that turns bold ideas into unforgettable brand experiences—fast, fearless, and always on strategy.",
-      targetAudience: "Ambitious startup founders and marketing directors at scaling companies (Series A-C) who need premium creative work without agency bloat.",
+      positioning: "The custom coloring book brand that turns your memories, pets, and special moments into relaxing, personalized art therapy.",
+      targetAudience: "Creative adults (25-55) who use coloring for relaxation, parents wanting personalized activities for kids, and gift-givers looking for unique, meaningful presents.",
       pillars: [
         {
-          name: "Behind the Scenes",
-          description: "Process reveals, design decisions, and the 'making of' content that builds trust.",
+          name: "Coloring Timelapses",
+          description: "Satisfying videos of coloring books being completed—ASMR-worthy content that stops the scroll.",
           percentage: 35
         },
         {
-          name: "Client Wins",
-          description: "Case studies, testimonials, and before/after transformations.",
+          name: "Personalization Magic",
+          description: "Behind-the-scenes of how custom books are made, before/after reveals, and customization showcases.",
+          percentage: 30
+        },
+        {
+          name: "Customer Creations",
+          description: "Featuring customer work, unboxing reactions, and user-generated content that builds social proof.",
           percentage: 25
         },
         {
-          name: "Industry Education",
-          description: "Tips, trends, and hot takes that position you as a thought leader.",
-          percentage: 25
-        },
-        {
-          name: "Culture & Values",
-          description: "Team moments, studio vibes, and what makes Chromory different.",
-          percentage: 15
+          name: "Coloring Tips & Relaxation",
+          description: "Coloring techniques, supply recommendations, and the mental health benefits of coloring.",
+          percentage: 10
         }
       ],
       calendar: [
